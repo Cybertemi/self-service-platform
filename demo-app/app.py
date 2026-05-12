@@ -6,6 +6,9 @@ start_time = time.time()
 
 @app.route("/")
 def home():
+    return jsonify({"message": "Hello from sandbox!"})
+@app.route("/envs")
+def get_envs():
     return jsonify({"message": "Hello from sandbox!", "env": os.getenv("ENV_ID", "unknown")})
 
 @app.route("/health")
