@@ -4,31 +4,8 @@ A self-service platform where users can spin up isolated temporary environments,
 deploy apps, simulate outages, monitor health, and auto-destroy everything.
 
 ## Architecture
-┌─────────────────────────────────────────────────────┐
-│                    Linux VM (AWS EC2)                │
-│                                                     │
-│  ┌─────────────┐         ┌─────────────────────┐   │
-│  │  Flask API  │         │  cleanup_daemon.sh  │   │
-│  │  :8000      │         │  (runs every 60s)   │   │
-│  └──────┬──────┘         └──────────┬──────────┘   │
-│         │                           │               │
-│  ┌──────▼───────────────────────────▼──────────┐   │
-│  │         create/destroy_env.sh                │   │
-│  └──────────────────┬───────────────────────────┘   │
-│                     │                               │
-│  ┌──────────────────▼───────────────────────────┐   │
-│  │     Nginx Container (dynamic routing :80)    │   │
-│  └──────────────────┬───────────────────────────┘   │
-│                     │                               │
-│  ┌──────────────────▼───────────────────────────┐   │
-│  │   App Containers (each in isolated network)  │   │
-│  │   env-abc123  env-def456  env-ghi789         │   │
-│  └──────────────────────────────────────────────┘   │
-│                                                     │
-│  ┌──────────────────────────────────────────────┐   │
-│  │     health_poller.py (runs every 30s)        │   │
-│  └──────────────────────────────────────────────┘   │
-└─────────────────────────────────────────────────────┘
+
+![Architecture](architecture.png)
 
 ## Prerequisites
 
