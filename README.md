@@ -26,7 +26,7 @@ sudo apt install -y make jq uuid-runtime python3-pip
 ## Quick Start (zero to first running env in 5 commands)
 
 ```bash
-git clone https://github.com/YOURUSERNAME/self-service-platform
+git clone https://github.com/Cybertemi/self-service-platform
 cd self-service-platform
 python3 -m venv venv && source venv/bin/activate
 pip install flask requests
@@ -122,3 +122,47 @@ ls envs/  # should be empty
 - Log shipping uses background processes, not a proper log aggregator
 - No authentication on the API endpoints
 - Single VM means no horizontal scaling
+
+## Demo
+
+Live demo application:
+https://drive.google.com/drive/folders/1tTgCcgOorp9ms7c3MSw6axD5pp8Arvym
+
+You can use the demo app to:
+
+- Create temporary environments
+- Simulate outages and recovery workflows
+- Monitor environment health
+- Observe automatic cleanup after TTL expiration
+
+---
+
+## Conclusion
+
+This project demonstrates the core concepts behind modern Internal Developer Platforms (IDPs) and self-service infrastructure systems used in real-world platform engineering teams.
+
+The platform provides automated environment provisioning, isolated deployments, health monitoring, outage simulation, and automatic resource cleanup within a lightweight architecture built on Docker, Flask, Nginx, and Linux tooling.
+
+Through this project, key DevOps and platform engineering concepts were explored, including:
+
+- Container orchestration fundamentals
+- Infrastructure automation
+- Environment lifecycle management
+- Health monitoring and recovery workflows
+- Self-service developer tooling
+- CI/CD-aligned operational patterns
+
+Future improvements could include:
+
+- Kubernetes-based orchestration
+- Authentication and RBAC
+- Persistent storage support
+- Multi-node scaling
+- Centralized logging and metrics
+- Production-grade deployment with Gunicorn and reverse proxy hardening
+
+This project was built as a hands-on exploration of scalable developer infrastructure and platform engineering workflows inspired by systems like Heroku and modern cloud developer platforms.
+
+### Author
+
+Temitope Ilori Linkedin: http://linkedin.com/in/iloritemi
